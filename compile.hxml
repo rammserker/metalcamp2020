@@ -1,0 +1,3 @@
+-cp src
+-js js/app.js
+-main rmzrkr.app.MetalCamp2020App
