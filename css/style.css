@@ -1,7 +1,13 @@
+/*** Reset ***/
 html, body, div, section {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/*** Variables ***/
+:root {
+    --top-margin: 60px;
 }
 
 /*** Router ***/
@@ -10,15 +16,43 @@ section {
 }
 
 section:target,
-section#inicio {
+section.main {
     display: block;
 }
 
+@keyframes section-appear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+section:target {
+    animation: section-appear .5s linear;
+}
+
+section.main {
+    animation: none;
+}
+
 /*** Fuentes ***/
+@font-face {
+    font-family: "CarnivalFest";
+    src: url("../fonts/carnival_font.ttf");
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    
     background: #222 url(../img/fondo_1600_web.jpg) no-repeat center center fixed;
     background-size: cover;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
 }
 
 /*** Título principal y logo ***/
@@ -39,6 +73,7 @@ h1 {
     
     color: transparent;
     background: transparent url(../img/logo_carnival_web.png) no-repeat center;
+    text-shadow: none;
     
     left: 0%;
     transform: scale(.5) rotate(-10deg) translate(-40%,-80%);
@@ -46,33 +81,23 @@ h1 {
     transition: left 1s ease-in-out, transform 1s ease-in-out;
 }
 
-@keyframes totopnav {
+@keyframes nav-totop {
     0% {
-        top: 100%;
-        right: 50%;
-        transform: translate(50%,-100%);
-        opacity: 1;
-    }
-    
-    50% {
-        top: 100%;
-        right: 50%;
-        transform: translate(50%,0);
-        opacity: .2;
-    }
-    
-    51% {
-        right: 0;
-        top: 0;
-        transform: translate(100%,0);
-        opacity: .2;
+        transform: translate(0,-100%);
     }
     
     100% {
-        right: 0;
-        top: 0;
         transform: translate(0,0);
-        opacity: 1;
+    }
+}
+
+@keyframes nav-tobottom {
+    0% {
+        transform: translate(50%,0);
+    }
+    
+    100% {
+        transform: translate(50%, -100%);
     }
 }
 
@@ -80,25 +105,169 @@ h1 {
     top: 100%;
     right: 50%;
     transform: translate(50%,-100%);
+    
+    animation: nav-tobottom .6s ease-out;
 }
 
 nav {
     right: 0;
     top: 0;
     transform: translate(0,0);
-    /*
-    animation-name: totopnav;
-    animation-duration: 1s;
-    */
+    
+    animation: nav-totop .6s ease-out;
 }
 
 /** Menú **/
 nav a {
     /*color: transparent;*/
     margin: .4em .2em;
+    font-family: CarnivalFest;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0 0 2px #fff;
+    font-size: 2.4em;
 }
 
-nav a[href*=lugar]      { content: url("../img/button_mapas.png"); }
-nav a[href*=programa]   { content: url("../img/button_actividades.png"); }
-nav a[href*=bandas]     { content: url("../img/button_bandas.png"); }
-nav a[href*=contacto]   { content: url("../img/button_contacto.png"); }
+:target .social {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    
+    animation: nav-totop .6s;
+}
+
+.social {
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+}
+
+/** Secciones **/
+section {
+    position: absolute;
+    padding: 1.5em;
+    
+    top: var(--top-margin);
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    width: 100%;
+    max-width: 800px;
+    min-height: 60vh;
+    
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    
+    overflow-y: auto;
+    
+    background: rgba(0,0,0,.4);
+    background: transparent linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));
+}
+
+section.main {
+    position: fixed;
+    margin: 0;
+    background: transparent linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));
+    max-width: none;
+    
+    top: 0;
+    left: unset;
+    transform: unset;
+}
+
+.main h1,
+.main nav {
+    z-index: 100;
+}
+
+h2 {
+    margin: 0 0 1rem;
+    text-align: center;
+    font-family: CarnivalFest;
+    font-weight: normal;
+    font-size: 3em;
+    color: #000;
+    text-shadow: 0 0 2px #fff;
+}
+
+#lugar {
+    text-align: center;
+}
+
+section p {
+    width: 80%;
+    margin: .4em auto;
+    text-align: left;
+}
+
+/*** Programa ***/
+table {
+    width: 100%;
+    font-family: CarnivalFest;
+    font-size: 20px;
+    text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+td {
+    text-align: center;
+    color: #8d9b7c;
+}
+
+th {
+    font-weight: normal;
+}
+
+thead th {
+    font-size: 30px;
+    color: #fff;
+}
+
+tbody th {
+    color: #b45215;
+    font-size: 18px;
+}
+
+tbody a {
+    text-decoration: none;
+    color: inherit;
+}
+
+tbody a:hover {
+    color: #fff;
+    transform: scale(1.4);
+}
+
+tbody tr {
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+tbody tr:nth-of-type(2n + 1) {
+    background: rgba(0,0,0,.6);
+}
+
+.contenedor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+    z-index: 10;
+    
+    overflow-y: auto;
+}
+
+/*** Cuenta regresiva ***/
+.cuenta {
+    position: fixed;
+    bottom: 150px;
+    font-family: CarnivalFest;
+    font-size: 6em;
+    right: 50%;
+    transform: translate(50%, 0);
+    color: #000;
+    text-shadow: 0 0 4px #fff;
+    display: none;
+}

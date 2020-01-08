@@ -1,9 +1,11 @@
 #!/bin/sh
-DESTINATION="../cassetteuy.github.io/test/metalcamp2020/";
+# DESTINATION="../cassetteuy.github.io/test/metalcamp2020/";
+DESTINATION="../carnivalfestpaysandu.github.io/";
 cp -u index.html $DESTINATION;
-cp -u -r js $DESTINATION/js;
-cp -u -r css $DESTINATION/css;
-cp -u -r img $DESTINATION/img;
+cp -u -r js ${DESTINATION};
+cp -u -r css ${DESTINATION};
+cp -u -r img ${DESTINATION};
+cp -u -r fonts ${DESTINATION};
 
 cd $DESTINATION;
 git add *;
