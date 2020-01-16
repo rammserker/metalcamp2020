@@ -72,8 +72,9 @@ h1 {
     max-width: 100%;
     
     color: transparent;
-    background: transparent url(../img/logo_carnival_web.png) no-repeat center;
+    /*background: transparent url(../img/logo_carnival_web.png) no-repeat center;*/
     text-shadow: none;
+    content: url(../img/logo_carnival_web.png);
     
     left: 0%;
     transform: scale(.5) rotate(-10deg) translate(-40%,-80%);
