@@ -6,6 +6,7 @@ cp -u -r js ${DESTINATION};
 cp -u -r css ${DESTINATION};
 cp -u -r img ${DESTINATION};
 cp -u -r fonts ${DESTINATION};
+cp -u -r data ${DESTINATION};
 
 cd $DESTINATION;
 git add *;
