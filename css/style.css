@@ -295,3 +295,13 @@ tbody tr:nth-of-type(2n + 1) {
     justify-self: center;
     align-self: center;
 }
+
+/*** Sección: Perfil Bandas ***/
+.perfilBanda {
+    text-align: center;
+    min-height: 650px;
+}
+
+.perfilBanda p {
+    background: rgba(0,0,0,.6);
+}
