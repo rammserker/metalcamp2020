@@ -298,9 +298,30 @@ tbody tr:nth-of-type(2n + 1) {
 }
 
 /*** Sección: Perfil Bandas ***/
+@keyframes logo-in {
+    0% {
+        transform: scale(2);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+}
+
 .perfilBanda {
     text-align: center;
     min-height: 650px;
+    
+    background-position: center top;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}
+
+.perfilBanda h3 {
+    margin: 70px auto 1em;
+    width: 100%;
+    max-width: 500px;
+    animation: logo-in 1s ease-out;
 }
 
 .perfilBanda p {

@@ -68,7 +68,8 @@ async function crearPerfil (banda)
     // Construir la página
     const nueva = document.getElementById('tplInnerBanda').content.cloneNode(true),
         seccion = nueva.querySelector('section'),
-        logo    = nueva.querySelector('img'),
+        title   = nueva.querySelector('h3'),
+        // logo    = nueva.querySelector('img'),
         body    = nueva.querySelector('.article-principal'),
         video   = nueva.querySelector('.article-video'),
         social  = nueva.querySelector('.article-social');
@@ -79,9 +80,13 @@ async function crearPerfil (banda)
     // Ponerle la foto de los pibes de fondo de pantalla
     seccion.style.backgroundImage = `url(img/bandas/${banda}/foto.png)`;
 
+    /*
     logo.src = `img/bandas/${banda}/logo.png`;
 
     logo.alt = data.bandas[banda].name;
+    */
+    title.innerHTML     = data.bandas[banda].name;
+    title.style.content = `url(img/bandas/${banda}/logo.png)`
 
     // Cuerpo de la descripción
     let parrafo = document.createElement('p');
