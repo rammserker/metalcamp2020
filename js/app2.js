@@ -80,20 +80,79 @@ async function crearPerfil (banda)
     // Ponerle la foto de los pibes de fondo de pantalla
     seccion.style.backgroundImage = `url(img/bandas/${banda}/foto.png)`;
 
-    /*
-    logo.src = `img/bandas/${banda}/logo.png`;
-
-    logo.alt = data.bandas[banda].name;
-    */
+    // Poner el logo como título de la sección
     title.innerHTML     = data.bandas[banda].name;
-    title.style.content = `url(img/bandas/${banda}/logo.png)`
+    title.style.content = `url(img/bandas/${banda}/logo.png)`;
+
+    // Cargar datos
+    const banddata = await fetch(`data/${banda}/profile.json`).then(res => res.json());
+
+    // Redes sociales
+    if (banddata.social != null)
+    {
+        banddata.social.forEach(url => {
+            const ared  = document.createElement('a');
+            ared.href   = url;
+            ared.target = "_blank";
+
+            if (url.indexOf('facebook') > -1)
+            {
+                ared.innerHTML = '<i class="icon-facebook"></i>Facebook';
+                ared.alt = 'Facebook';
+            } else if (url.indexOf('instagram') > -1)
+            {
+                ared.innerHTML = '<i class="icon-instagram"></i>Instagram';
+                ared.alt = 'Instagram';
+            } else if (url.indexOf('bandcamp') > -1)
+            {
+                ared.innerHTML = '<i class="icon-bandcamp"></i>Bandcamp';
+                ared.alt = 'Bandcamp';
+            } else if (url.indexOf('soundclou') > -1)
+            {
+                ared.innerHTML = '<i class="icon-soundcloud"></i>Soundcloud';
+                ared.alt = 'Soundcloud';
+            } else if (url.indexOf('youtube') > -1)
+            {
+                ared.innerHTML = '<i class="icon-youtube"></i>YouTube';
+                ared.alt = 'YouTube';
+            } else if (url.indexOf('spoti') > -1)
+            {
+                ared.innerHTML = '<i class="icon-spotify"></i>Spotify';
+                ared.alt = 'Spotify';
+            } else
+            {
+                ared.innerHTML = '<i class="icon-home"></i>Sitio oficial';
+                ared.alt = 'Sitio oficial';
+            };
+
+            social.appendChild(ared);
+        });
+    }
 
     // Cuerpo de la descripción
-    let parrafo = document.createElement('p');
-    parrafo.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+    banddata.description.split('\n').forEach(parrafo => {
+        const p = document.createElement('p');
+        p.innerHTML = parrafo;
 
-    body.appendChild(parrafo);
+        body.appendChild(p);    
+    });
 
+    // Video de la banda
+    if (banddata.video != null && banddata.video.indexOf("facebook") == -1)
+    {
+        video.innerHTML = `<iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/${banddata.video}?rel=0"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`;    
+    } else
+    {
+        video.classList.add('profile-no-video');
+    }
+
+    // Agregar perfil a la página
     document.body.appendChild(nueva);
 
     // Recargar la sección a través del hash

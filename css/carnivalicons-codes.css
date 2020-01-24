@@ -1,0 +1,10 @@
+
+.icon-home:before { content: '\e800'; } /* '' */
+.icon-location:before { content: '\e801'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
+.icon-spinner:before { content: '\f110'; } /* '' */
+.icon-youtube:before { content: '\f16a'; } /* '' */
+.icon-spotify:before { content: '\f1bc'; } /* '' */
+.icon-bandcamp:before { content: '\f2d5'; } /* '' */
+.icon-instagram:before { content: '\f32d'; } /* '' */
