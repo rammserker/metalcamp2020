@@ -313,7 +313,6 @@ tbody tr:nth-of-type(2n + 1) {
     text-align: center;
     min-height: 650px;
     
-    background-attachment: fixed;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
