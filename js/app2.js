@@ -84,6 +84,9 @@ async function crearPerfil (banda)
     title.innerHTML     = data.bandas[banda].name;
     title.style.content = `url(img/bandas/${banda}/logo.png)`;
 
+    // Poner el nombre de la banda como título, debajo del logo
+    body.querySelector('h2').innerHTML = data.bandas[banda].name;
+
     // Cargar datos
     const banddata = await fetch(`data/${banda}/profile.json`).then(res => res.json());
 
