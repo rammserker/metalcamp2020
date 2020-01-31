@@ -287,6 +287,16 @@ tbody tr:nth-of-type(2n + 1) {
 }
 
 /*** Cuenta regresiva ***/
+@keyframes cuenta-appear {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
 .cuenta {
     position: fixed;
     bottom: 150px;
@@ -299,7 +309,7 @@ tbody tr:nth-of-type(2n + 1) {
     text-align: center;
     line-height: .8;
     opacity: 0;
-    transition: opacity .6s ease;
+    display: none;
 }
 
 .cuenta span {
@@ -313,7 +323,9 @@ tbody tr:nth-of-type(2n + 1) {
 }
 
 :target .cuenta {
+    display: block;
     opacity: 1;
+    animation: cuenta-appear .6s ease-out;
 }
 
 /*** Sección: Bandas ***/
@@ -499,5 +511,13 @@ https://avexdesigns.com/responsive-youtube-embed/ */
         text-shadow:0 0 3px #000;
         font-size: 1.8em;
         cursor: pointer;
+    }
+    
+    h1 {
+        transform: scale(.5) rotate(-10deg) translate(-40%,-95%);
+    }
+    
+    section {
+        top: 100px;
     }
 }
