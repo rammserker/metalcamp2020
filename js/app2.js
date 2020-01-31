@@ -226,3 +226,20 @@ function updateContador ()
 
     setTimeout(updateContador, 1000);
 }
+
+/// Gestión de menú móvil
+const anvorgesa = document.querySelector('.icon-menu'),
+    menuel = document.querySelector('nav');
+
+anvorgesa.addEventListener('click', _ => {
+    menuel.style.display = 'flex';
+
+    function ocultarMenu (evt)
+    {
+        menuel.style.removeProperty('display');
+
+        menuel.removeEventListener(ocultarMenu);
+    }
+
+    menuel.addEventListener('click', ocultarMenu);
+});
