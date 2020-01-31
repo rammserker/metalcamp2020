@@ -445,9 +445,31 @@ https://avexdesigns.com/responsive-youtube-embed/ */
         position: fixed;
         top: 0;
         width: 100vw;
-        height: 100vh;
         
         background: rgba(0,0,0,.8);
+        right: 0;
+    }
+    
+    nav::before {
+        content: "x";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        border-radius: 50%;
+        border: solid 2px #fff;
+        width: 1.4em;
+        height: 1.4em;
+        
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        
+        cursor: pointer;
+    }
+    
+    nav::before:hover {
+        color: var(--highlight-color);
     }
     
     .icon-menu {

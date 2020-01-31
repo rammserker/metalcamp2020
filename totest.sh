@@ -2,6 +2,7 @@
 # DESTINATION="../cassetteuy.github.io/test/metalcamp2020/";
 DESTINATION="../carnivalfestpaysandu.github.io/";
 cp -u index.html $DESTINATION;
+cp -u favicon.png $DESTINATION;
 cp -u -r js ${DESTINATION};
 cp -u -r css ${DESTINATION};
 cp -u -r img ${DESTINATION};
