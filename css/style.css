@@ -63,6 +63,10 @@ body {
     min-width: 100vw;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*** Título principal y logo ***/
 .icon-menu {
     display: none;
@@ -158,7 +162,7 @@ nav a {
 
 /** Secciones **/
 section {
-    position: absolute;
+    position: relative;
     padding: 1.5em;
     
     top: var(--top-margin);
@@ -176,6 +180,7 @@ section {
     
     background: rgba(0,0,0,.4);
     background: transparent linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));
+    margin-top: 60px;
 }
 
 section.main {
@@ -518,6 +523,6 @@ https://avexdesigns.com/responsive-youtube-embed/ */
     }
     
     section {
-        top: 100px;
+        /*! top: 100px; */
     }
 }
