@@ -26,7 +26,7 @@ window.addEventListener('load', _ => {
 
 //// Routeo: eventos
 window.addEventListener("popstate", _ => {
-    console.log('Evento de pop');
+    // console.log('Evento de pop');
 
     let ubicacion   = location.hash.substr(1),
         saneada     = returnSection(ubicacion);
@@ -47,6 +47,9 @@ window.addEventListener("popstate", _ => {
             if (!elem) crearPerfil(banda);
         }
     }
+
+    // Para que quede siempre al top
+    window.scrollTo(0,0);
 });
 
 // Funciones
