@@ -84,6 +84,9 @@ async function crearPerfil (banda)
     title.innerHTML     = data.bandas[banda].name;
     title.style.content = `url(img/bandas/${banda}/logo.png)`;
 
+    // Poner el nombre de la banda como título, debajo del logo
+    body.querySelector('h2').innerHTML = data.bandas[banda].name;
+
     // Cargar datos
     const banddata = await fetch(`data/${banda}/profile.json`).then(res => res.json());
 
@@ -136,6 +139,16 @@ async function crearPerfil (banda)
 
         body.appendChild(p);    
     });
+
+    // Agregar como último parrafo la fecha en que estarán tocando
+    let horario = document.createElement('p'),
+        fecha   = new Date(data.bandas[banda].event);
+
+    horario.innerHTML = `${data.bandas[banda].name} estará tocando en el Carnival Fest Paysandú el día
+    <a href="#programa" alt="Ver actividades"><time datetime="${data.bandas[banda].event}">${fecha.toLocaleString('es-UY', {weekday: 'long', day: 'numeric'})} a las ${fecha.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric'})}</time></a>
+    ¡No te lo pierdas!`;
+
+    body.appendChild(horario);
 
     // Video de la banda
     if (banddata.video != null && banddata.video.indexOf("facebook") == -1)
