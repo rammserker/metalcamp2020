@@ -1,4 +1,4 @@
-const version = '0.3.62',
+const version = '0.4',
     secciones = [],
     data = {},
     rutas = {
@@ -8,6 +8,7 @@ const version = '0.3.62',
     contador = document.querySelector('.cuenta');
 
 console.log(`Iniciando v${version}`);
+console.log('¿Querés saber cómo está hecha esta página? Estudiá todo lo que quieras, pariente. Sin frameworks');
 
 // Rellenar secciones
 let sectionels = Array.from( document.getElementsByTagName('section') );
@@ -17,9 +18,28 @@ sectionels.forEach(el => secciones.push(el.id));
 // Crear sección de bandas
 createBandas();
 
-// Routeo
-goToRoute(location.hash.substr(1));
+// Verificar que la ruta pasada sea correcta
+let ubicacion = location.hash.substr(1),
+    saneada   = returnSection(ubicacion);
 
+if (ubicacion != saneada)
+{
+    console.log(`Cambiando ${ubicacion} por ${saneada}`);
+    goToRoute(saneada);
+} else
+{
+    // Verificar si no está intentando entrar al perfil de una banda
+    if (saneada.indexOf('bandas/') > -1)
+    {
+        // debugger
+        let banda = saneada.split('/')[1],
+            elem = document.getElementById(saneada);
+
+        if (!elem) crearPerfil(banda);
+    }
+}
+
+// Routeo
 window.addEventListener('load', _ => {
     updateContador();
 });
@@ -190,8 +210,6 @@ async function createBandas ()
     const seccion = document.querySelector('#bandas article'),
         tpl     = document.getElementById('tplBanda'),
         bandas  = await fetch(rutas.bandas).then(res => res.json());
-    
-    console.log(bandas);
 
     // Poner en la data general
     data.bandas = bandas.reduce((obj, val) => {

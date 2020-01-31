@@ -478,10 +478,11 @@ https://avexdesigns.com/responsive-youtube-embed/ */
         
         position: fixed;
         top: 0;
+        right: 0;
         width: 100vw;
         
         background: rgba(0,0,0,.8);
-        right: 0;
+        box-shadow: 0 0 8px #000;
     }
     
     nav::before {
@@ -524,5 +525,9 @@ https://avexdesigns.com/responsive-youtube-embed/ */
     
     section {
         /*! top: 100px; */
+    }
+    
+    .perfilBanda h3 {
+        margin: 0 auto;
     }
 }
