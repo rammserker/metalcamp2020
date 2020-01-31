@@ -8,7 +8,8 @@ html, body, div, section {
 /*** Variables ***/
 :root {
     --top-margin: 60px;
-    --highlight-color: yellow;
+    --highlight-color: #4ab701;
+    --hightlight-alt-color: #b45215;
 }
 
 /*** Router ***/
@@ -69,7 +70,7 @@ h1, nav {
 
 h1 {
     width: 512px;
-    height: 298px;
+    height: auto;
     max-width: 100%;
     
     color: transparent;
@@ -266,12 +267,29 @@ tbody tr:nth-of-type(2n + 1) {
     position: fixed;
     bottom: 150px;
     font-family: CarnivalFest;
-    font-size: 6em;
+    font-size: 4em;
     right: 50%;
     transform: translate(50%, 0);
     color: #000;
     text-shadow: 0 0 4px #fff;
-    display: none;
+    text-align: center;
+    line-height: .8;
+    opacity: 0;
+    transition: opacity .6s ease;
+}
+
+.cuenta span {
+    color: var(--hightlight-alt-color);
+    text-shadow: 0 0 5px #000;
+}
+
+.cuenta time {
+    display: block;
+    font-size: 70%;
+}
+
+:target .cuenta {
+    opacity: 1;
 }
 
 /*** Sección: Bandas ***/
