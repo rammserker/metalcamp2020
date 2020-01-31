@@ -58,6 +58,9 @@ body {
     background-size: cover;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
+    
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 /*** Título principal y logo ***/
@@ -204,6 +207,19 @@ h2 {
 
 #lugar {
     text-align: center;
+}
+
+figure {
+    max-width: 100%;
+}
+
+figure img {
+    max-width: 100%;
+}
+
+figcaption {
+    font-size: .8em;
+    color: #ccc;
 }
 
 section p {
