@@ -209,7 +209,42 @@ async function createBandas ()
 {
     const seccion = document.querySelector('#bandas article'),
         tpl     = document.getElementById('tplBanda'),
-        bandas  = await fetch(rutas.bandas).then(res => res.json());
+        bandas = [
+{"id": "aguas", "event": "2020-02-07T19:00:00-03:00", "name": "Aguas Turbias"},
+{"id": "alpha", "event": "2020-02-07T20:00:00-03:00", "name": "Alpha"},
+{"id": "anarky", "event": "2020-02-07T18:00:00-03:00", "name": "Anarky's Child"},
+{"id": "antagonica", "event": "2020-02-07T17:00:00-03:00", "name": "Antagonica"},
+{"id": "apneuma", "event": "2020-02-07T23:00:00-03:00", "name": "Apneuma"},
+{"id": "arte", "event": "2020-02-09T21:00:00-03:00", "name": "Arte Blasfemo"},
+{"id": "b612", "event": "2020-02-09T22:00:00-03:00", "name": "B612"},
+{"id": "barbarie", "event": "2020-02-08T01:00:00-03:00", "name": "Barbarie"},
+{"id": "cimarron", "event": "2020-02-10T00:00:00-03:00", "name": "Cimarron"},
+{"id": "days", "event": "2020-02-08T20:00:00-03:00", "name": "Days of the Phoenix"},
+{"id": "biodroid", "event": "2020-02-09T18:00:00-03:00", "name": "Biodroid"},
+{"id": "escoria", "event": "2020-02-08T16:00:00-03:00", "name": "Escoria"},
+{"id": "eslabon", "event": "2020-02-08T18:00:00-03:00", "name": "Eslabon"},
+{"id": "espectros", "event": "2020-02-08T00:00:00-03:00", "name": "Espectros"},
+{"id": "herencia", "event": "2020-02-08T17:00:00-03:00", "name": "Herencia de Sangre"},
+{"id": "hijos", "event": "2020-02-09T16:00:00-03:00", "name": "Hijos Bastardos"},
+{"id": "horror", "event": "2020-02-08T23:00:00-03:00", "name": "Horror on Black Hills"},
+{"id": "mala", "event": "2020-02-09T19:00:00-03:00", "name": "Mala Influencia"},
+{"id": "maquinaria", "event": "2020-02-08T19:00:00-03:00", "name": "Maquinaria Pesada"},
+{"id": "parasital", "event": "2020-02-08T22:00:00-03:00", "name": "Parasital Existence"},
+{"id": "plan", "event": "2020-02-09T02:00:00-03:00", "name": "Plan Cuatro"},
+{"id": "rr", "event": "2020-02-09T17:00:00-03:00", "name": "RR 1984"},
+{"id": "ritual", "event": "2020-02-09T00:00:00-03:00", "name": "Ritual de Nacimiento"},
+{"id": "ropa", "event": "2020-02-07T16:00:00-03:00", "name": "Ropa Vieja"},
+{"id": "rotten", "event": "2020-02-09T20:00:00-03:00", "name": "Rotten State"},
+{"id": "ruta", "event": "2020-02-09T14:00:00-03:00", "name": "Ruta 504"},
+{"id": "serpentor", "event": "2020-02-08T02:00:00-03:00", "name": "Serpentor"},
+{"id": "sin", "event": "2020-02-07T22:00:00-03:00", "name": "Sin Principios"},
+{"id": "spiritcraft", "event": "2020-02-09T23:00:00-03:00", "name": "Spiritcraft"},
+{"id": "tio", "event": "2020-02-09T15:00:00-03:00", "name": "Tio Toya"},
+{"id": "vida", "event": "2020-02-09T01:00:00-03:00", "name": "V.I.D.A"},
+{"id": "vademekhum", "event": "2020-02-07T21:00:00-03:00", "name": "Vademekhum"},
+{"id": "vermiforme", "event": "2020-02-08T21:00:00-03:00", "name": "Vermiforme"}
+];
+        // bandas  = await fetch(rutas.bandas).then(res => res.json());
 
     // Poner en la data general
     data.bandas = bandas.reduce((obj, val) => {
