@@ -3,7 +3,9 @@ const version = '0.3.3',
     data = {},
     rutas = {
         bandas: 'data/bandas.json'
-    };
+    },
+    datetimeinicio = new Date('2020-02-07T16:00:00-03:00'),
+    contador = document.querySelector('.cuenta');
 
 console.log(`Iniciando v${version}`);
 
@@ -19,7 +21,7 @@ createBandas();
 goToRoute(location.hash.substr(1));
 
 window.addEventListener('load', _ => {
-    
+    updateContador();
 });
 
 //// Routeo: eventos
@@ -210,4 +212,13 @@ async function createBandas ()
         // Crear registro en las secciones disponibles
         secciones.push(`bandas/${banda.id}`);
     });
+}
+
+function updateContador ()
+{
+    let diff = new Date(datetimeinicio - Date.now());
+
+    contador.innerHTML = `faltan <span>${diff.toLocaleString('es-UY', {day: '2-digit'})}</span> dias<time>${diff.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric', second: 'numeric'})}</time>`; // + ':' + diff.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
+
+    setTimeout(updateContador, 1000);
 }
