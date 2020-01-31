@@ -1,10 +1,10 @@
-const version = '0.3.3',
+const version = '0.3.62',
     secciones = [],
     data = {},
     rutas = {
         bandas: 'data/bandas.json'
     },
-    datetimeinicio = new Date('2020-02-07T16:00:00-03:00'),
+    datetimeinicio = new Date('2020-02-07T19:00:00-03:00'),
     contador = document.querySelector('.cuenta');
 
 console.log(`Iniciando v${version}`);
@@ -26,7 +26,7 @@ window.addEventListener('load', _ => {
 
 //// Routeo: eventos
 window.addEventListener("popstate", _ => {
-    // console.log('Pop');
+    console.log('Evento de pop');
 
     let ubicacion   = location.hash.substr(1),
         saneada     = returnSection(ubicacion);
@@ -40,6 +40,7 @@ window.addEventListener("popstate", _ => {
         // Verificar si no está intentando entrar al perfil de una banda
         if (saneada.indexOf('bandas/') > -1)
         {
+            // debugger
             let banda = saneada.split('/')[1],
                 elem = document.getElementById(saneada);
 
@@ -171,7 +172,10 @@ async function crearPerfil (banda)
     document.body.appendChild(nueva);
 
     // Recargar la sección a través del hash
-    location.hash = location.hash;
+    // Por problemas en chromiums debo engañar al sistema y hacer un cambio doble
+    let mihash = location.hash;
+    location.hash = '#inicio';
+    location.hash = mihash;
 }
 
 async function createBandas ()
