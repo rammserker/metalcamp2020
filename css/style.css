@@ -164,7 +164,7 @@ section {
     
     width: 100%;
     max-width: 800px;
-    min-height: 60vh;
+    /*! min-height: 60vh; */
     
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
@@ -184,6 +184,7 @@ section.main {
     top: 0;
     left: unset;
     transform: unset;
+    z-index: 50;
 }
 
 .main h1,
@@ -258,15 +259,15 @@ tbody tr:nth-of-type(2n + 1) {
 }
 
 .contenedor {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+    /*! top: 0; */
+    /*! bottom: 0; */
+    /*! right: 0; */
+    /*! left: 0; */
     
-    z-index: 10;
+    /*! z-index: 10; */
     
-    overflow-y: auto;
+    /*! overflow-y: auto; */
 }
 
 /*** Cuenta regresiva ***/
