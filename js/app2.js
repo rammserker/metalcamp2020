@@ -1,4 +1,4 @@
-const version = '0.4',
+const version = '0.6',
     secciones = [],
     data = {},
     rutas = {
