@@ -282,7 +282,7 @@ function updateContador ()
 {
     let diff = new Date(datetimeinicio - Date.now());
 
-    contador.innerHTML = `faltan <span>${diff.toLocaleString('es-UY', {day: '2-digit'})}</span> dias<time>${diff.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric', second: 'numeric'})}</time>`; // + ':' + diff.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
+    contador.innerHTML = `faltan <span>${diff.toLocaleString('es-UY', {minute: 'numeric', second: 'numeric'})}</span> minutos`; // + ':' + diff.toLocaleString('es-UY', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
 
     setTimeout(updateContador, 1000);
 }
