@@ -41,7 +41,7 @@ if (ubicacion != saneada)
 
 // Routeo
 window.addEventListener('load', _ => {
-    updateContador();
+    // updateContador();
 });
 
 //// Routeo: eventos
