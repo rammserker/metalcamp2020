@@ -1,4 +1,4 @@
-const version = '0.6',
+const version = 'prueba',
     secciones = [],
     data = {},
     rutas = {
@@ -89,7 +89,7 @@ function goToRoute (seccion)
 {
     seccion = returnSection(seccion);
 
-    location.replace(`#${ seccion }`);
+    location.replace(`test/#${ seccion }`);
 }
 
 async function crearPerfil (banda)
@@ -243,21 +243,7 @@ async function createBandas ()
 {"id": "vida", "event": "2020-02-09T01:00:00-03:00", "name": "V.I.D.A"},
 {"id": "vademekhum", "event": "2020-02-07T21:00:00-03:00", "name": "Vademekhum"},
 {"id": "vermiforme", "event": "2020-02-08T21:00:00-03:00", "name": "Vermiforme"}
-],
-    ordenadas = bandas.map(b => {
-        b.event = new Date(b.event);
-        b.dia = 3;
-
-        if (b.event < (new Date('2020-02-09T03:00:00-03:00'))) b.dia = 2;
-        if (b.event < (new Date('2020-02-08T03:00:00-03:00'))) b.dia = 1;
-
-        return b;
-    }).sort((a, b) => a.event - b.event),
-    diaevento = (d => {
-        return d < (new Date('2020-02-08T03:00:00-03:00') ? 1 :
-                d < (new Date('2020-02-09T03:00:00-03:00') ? 2 : 3,
-    bandashoy = ordenadas.filter(b => b.dia == diaevento);
-    })(Date.now());
+];
         // bandas  = await fetch(rutas.bandas).then(res => res.json());
 
     // Poner en la data general
